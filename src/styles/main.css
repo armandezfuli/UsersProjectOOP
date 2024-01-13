@@ -1,0 +1,186 @@
+@import url("./font.css");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainTextColor: #e9e9e9;
+  --inputTextColor: #d3d3d3;
+  --whiteColor: #ffffff;
+  --mainBackgroundColor: #070b16;
+  --secondBackgroundColor: #111930;
+  --inputBackgroundColor: #1b2649;
+
+
+  --mainBorderRadius: .7rem;
+  --mainborder: 2px solid #293970;
+  --mainActiveBorder: 2px solid #31468a;
+  --inputBorder: 2px solid #1b2649;
+  --ActiveInputBorder:  2px solid #31468a;
+}
+
+html {
+  font-family: Vazirmatn;
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--mainBackgroundColor);
+  color: var(--mainTextColor);
+  text-align: center;
+}
+
+.createUser {
+  width: 50rem;
+  height: 40rem;
+  margin: 5rem auto;
+  background-color: var(--secondBackgroundColor);
+  border-radius: var(--mainBorderRadius);
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-row-gap: 2rem;
+  justify-content: center;
+  text-align: center;
+  border: var(--mainborder);
+}
+
+.createUser input {
+  width: 30rem;
+  height: 4rem;
+  padding-left: 1rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+  color: var(--mainTextColor);
+  border-radius: var(--mainBorderRadius);
+  background-color: var(--inputBackgroundColor);
+  border: var(--inputBorder);
+}
+
+.createUser input::placeholder {
+  font-size: 1.4rem;
+  color: var(--inputTextColor);
+}
+
+.createUser input:focus {
+  background-color: var(--inputBackgroundColor);
+  border: var(--ActiveInputBorder);
+}
+
+.createUser button {
+  width: 10rem;
+  height: 3rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: var(--inputBackgroundColor);
+  border-radius: var(--mainBorderRadius);
+  border: var(--mainborder);
+  color: inherit;
+}
+.createUser button:hover {
+  border: var(--mainActiveBorder);
+}
+
+.createUser h1 {
+  margin-top: 2rem;
+  font-size: 3rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+}
+
+
+
+
+
+
+#table {
+  width: 100rem;
+  margin: 2rem auto;
+  /* border: var(--mainborder); */
+}
+#table td {
+  text-align: left;
+  padding: 2rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+  /* border: var(--mainborder); */
+}
+
+#table caption {
+  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--whiteColor);
+  
+}
+
+#table thead {
+  background-color: #d3d3d3;
+  /* border: var(--mainborder); */
+  border: 2px solid #31468a;
+
+}
+
+#table thead th {
+  background-color: var(--secondBackgroundColor);
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1rem;
+  color: var(--whiteColor);
+}
+
+#table tbody td {
+  /* background-color: var(--mainBackgroundColor); */
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem;
+  /* border: var(--mainborder); */
+  text-align: center;
+  color: var(--inputTextColor);
+}
+
+#table tbody tr {
+  background-color: var(--secondBackgroundColor);
+  border: var(--mainborder);
+}
+
+#table tbody tr:nth-child(even) {
+  background-color: var(--inputBackgroundColor);
+}
+
+#table tbody td:nth-child(5) {
+  cursor: pointer;
+} 
+#table tbody td:nth-child(5):hover {
+  color: green;
+} 
+
+#table tbody td:nth-child(6) {
+  cursor: pointer;
+} 
+
+#table tbody td:nth-child(6):hover {
+  cursor: pointer;
+  color: red;
+} 
+/* th, td {
+  text-align: left;
+  padding: 20px;
+  font-weight: 300;
+}
+
+tbody tr {
+  font-size: 1.4rem;
+  color: var(--mainTextColor);
+}  */
