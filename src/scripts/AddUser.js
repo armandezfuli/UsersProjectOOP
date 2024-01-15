@@ -2,37 +2,36 @@ import { Api, Element } from "./utility.js";
 import { Show } from "./Show.js";
 
 class AddUser {
-  static add() {
-    const addBtn = Element.get("#submit");
-    const firstName = Element.get("#firstname");
-    const lastName = Element.get("#lastName");
-    const username = Element.get("#username");
+  constructor(props) {
+    this.apiDetails = props;
+    this.addBtn = Element.get("#submit");
+    this.firstName = Element.get("#firstname");
+    this.lastName = Element.get("#lastName");
+    this.username = Element.get("#username");
+  }
 
-    addBtn.addEventListener("click", async () => {
-      if (addBtn.innerHTML === "Submit") {
-        console.log("addEventListener");
+  postData() {
+    this.addBtn.addEventListener("click", async () => {
+      if (this.addBtn.innerHTML === "Submit") {
         const data = {
-          firstName: firstName.value,
-          lastName: lastName.value,
-          username: username.value,
+          firstName: this.firstName.value,
+          lastName: this.lastName.value,
+          username: this.username.value,
         };
-        const apiDetails = {
-          method: "POST",
-          url: "https://users-f76be-default-rtdb.firebaseio.com/users.json",
-          body: data,
-        };
-
-        await Api.post(apiDetails);
-
-        firstName.value = "";
-        lastName.value = "";
-        username.value = "";
-        Show.getData(apiDetails);
+        this.apiDetails.body = data;
+        await Api.post(this.apiDetails);
+        this.reander();
+        this.firstName.value = "";
+        this.lastName.value = "";
+        this.username.value = "";
       }
     });
   }
-}
 
-AddUser.add();
+  reander() {
+    const showInstance = new Show(this.apiDetails);
+    showInstance.reander();
+  }
+}
 
 export { AddUser };
