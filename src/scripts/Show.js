@@ -22,6 +22,10 @@ class Show {
           </tr>`;
         this.tbody.insertAdjacentHTML("beforeend", tr);
       }
+
+      let deleteBtns = Element.gets(".delBtn");
+      Api.delete(deleteBtns, this.apiDetails);
+
     } catch (error) {
       console.error(error);
     }

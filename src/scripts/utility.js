@@ -1,3 +1,4 @@
+import { Show } from "./Show.js";
 class Element {
   static get = (e) => document.querySelector(e);
   static gets = (e) => document.querySelectorAll(e);
@@ -31,8 +32,24 @@ class Api {
     console.log(props.url, props.method);
   }
 
-  static delete(props) {
-    console.log(props.url, props.method);
+  static delete(btns, props) {
+    btns.forEach((item) => {
+      item.addEventListener("click", async (e) => {
+        const userDeleteID = e.target.parentElement.querySelector(".userid").innerHTML;
+        try {
+          await fetch(
+            `https://users-f76be-default-rtdb.firebaseio.com/users/${userDeleteID}.json`,
+            {
+              method: "DELETE",
+            }
+          );
+          const showInstance = new Show(props);
+          showInstance.reander();
+        } catch (err) {
+          throw err;
+        }
+      });
+    });
   }
 }
 
