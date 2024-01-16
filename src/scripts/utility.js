@@ -28,8 +28,18 @@ class Api {
     }
   }
 
-  static put(props) {
-    console.log(props.url, props.method);
+  static async put(props) {
+    try {
+      await fetch(props.url, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(props.body),
+      });
+    } catch (err) {
+      throw err;
+    }
   }
 
   static delete(btns, props) {

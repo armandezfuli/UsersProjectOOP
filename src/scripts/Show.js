@@ -1,8 +1,14 @@
 import { Api, Element } from "./utility.js";
+import { EditUser } from "./Edite.js";
 
 class Show {
   constructor(props) {
-    this.apiDetails = props;
+    this.apiDetails = props
+      ? props
+      : {
+          url: "https://users-f76be-default-rtdb.firebaseio.com/users.json",
+          body: null,
+        };
     this.tbody = Element.get("tbody");
   }
 
@@ -26,6 +32,10 @@ class Show {
       let deleteBtns = Element.gets(".delBtn");
       Api.delete(deleteBtns, this.apiDetails);
 
+      let editeBtns = Element.gets(".edBtn");
+
+      const editeUser = new EditUser();
+      editeUser.getUserID(editeBtns);
     } catch (error) {
       console.error(error);
     }
